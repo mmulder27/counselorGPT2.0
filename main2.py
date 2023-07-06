@@ -13,11 +13,6 @@ import streamlit as st
 import time
 
 
-
-
-
-
-
 #Initialize OpenAIEmbeddings and Pinecone
 embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])
 pinecone.init(api_key=st.secrets["PINECONE_API_KEY"],environment=st.secrets["PINECONE_API_ENV"])
@@ -38,6 +33,8 @@ Question: {question}"""
 PROMPT = PromptTemplate(
     template=prompt_template, input_variables=["context", "question"]
 )
+
+#Create conversation chain
 chain = load_qa_chain((OpenAI(temperature=0, openai_api_key=st.secrets["OPENAI_API_KEY"])), chain_type="stuff", prompt=PROMPT)
 
 
@@ -50,7 +47,7 @@ with st.expander("Examples of questions you might ask:"):
     st.write("*What are some examples of courses I can take to satisfy my diversity requirement for the College of Letters and Sciences?*")
     st.write("*What have students said about PHYSCI 128 taught by Professor Hsiao?*")
 
-
+#Check for "messages" attribute in session state and initialize it if necessary
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
