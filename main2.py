@@ -87,8 +87,8 @@ if prompt := st.chat_input("How can I assist you?"):
             # Add assistant response to chat history
             st.session_state.messages.append({"role": "assistant", "content": full_response})  
         except Exception:
-            ##message_placeholder.markdown("Please elaborate.")
-            ##st.session_state.messages.append({"role": "assistant", "content": "Please elaborate."}) 
+            message_placeholder.markdown("Please elaborate.")
+            st.session_state.messages.append({"role": "assistant", "content": "Please elaborate."}) 
     
     
     
