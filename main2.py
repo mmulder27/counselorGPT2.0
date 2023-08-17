@@ -42,6 +42,7 @@ chain = load_qa_chain((OpenAI(temperature=0, openai_api_key=st.secrets["OPENAI_A
 #GUI implementation
 st.set_page_config(page_title="CounselorGPT 2.0", page_icon=":robot:")
 st.header("CounselorGPT 2.0")
+st.write("CounselorGPT 2.0 is no longer available due to 1) the rapid change in langchain documentation, rendering CounselorGpt2.0's code obsolete every few weeks and 2) the price of maintaining its knowledge database.    
 st.write("**Having read through UCLA's registrar and Bruinwalk's course reviews, I'm here to provide comprehensive answers to all your academic inquiries about UCLA.**")
 with st.expander("Examples of questions you might ask:"):
     st.write("*What classes can I take to learn about Roman architecture?*")
@@ -70,7 +71,7 @@ if prompt := st.chat_input("How can I assist you?"):
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         
-        ##try:
+        try:
             message_placeholder = st.empty()
             full_response = ""
             docs = retriever.get_relevant_documents(prompt)
@@ -85,7 +86,7 @@ if prompt := st.chat_input("How can I assist you?"):
             message_placeholder.markdown(full_response)
             # Add assistant response to chat history
             st.session_state.messages.append({"role": "assistant", "content": full_response})  
-        ##except Exception:
+        except Exception:
             ##message_placeholder.markdown("Please elaborate.")
             ##st.session_state.messages.append({"role": "assistant", "content": "Please elaborate."}) 
     
