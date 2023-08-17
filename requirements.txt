@@ -1,5 +1,4 @@
-langchain[all]
-tiktoken
+"langchain[all]"
 openAI
 streamlit
 pinecone-client
