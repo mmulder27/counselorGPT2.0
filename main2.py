@@ -69,7 +69,7 @@ if prompt := st.chat_input("How can I assist you?"):
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         
-        try:
+        ##try:
             message_placeholder = st.empty()
             full_response = ""
             docs = retriever.get_relevant_documents(prompt)
