@@ -14,6 +14,7 @@ import streamlit as st
 import time
 
 #NOTE: CounselorGPT2.0 is no longer operational.
+#A similar product can now be created in 5 minutes using Dropchat (https://app.dropchat.co/) or Wonderchat (https://wonderchat.io/).
 
 #Initialize OpenAIEmbeddings and Pinecone
 embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])
