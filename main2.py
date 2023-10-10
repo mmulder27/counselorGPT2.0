@@ -13,6 +13,7 @@ import pinecone
 import streamlit as st
 import time
 
+#NOTE: CounselorGPT2.0 is no longer operational.
 
 #Initialize OpenAIEmbeddings and Pinecone
 embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])
